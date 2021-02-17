@@ -1,0 +1,44 @@
+express framework
+bcryptsjs encriptar
+cors los cors :v
+dotenv variables de entorno
+jsonwebtoken jsonwebtoken :v
+mongoose manejar mongodb
+morgan para ver consultas
+helmet seguridad del servidor
+
+Otras librerias en desarrollo 
+Babeljs | Sirve para usar js moderno y convertirlo a js soportado por node
+@babel/core babel en si
+@babel/cli el command line de babel
+@babel/node esto es para usar babel en node
+@babel/preset-env para trnspilar babel
+nodemon para tener el servidor iniciado constantemente
+
+Para usar BABEL se tiene que crear un archivo .babelrc que debe tener lo siguiente:
+{
+    "presets": [
+        "@babel/preset-env"
+    ]
+}
+
+________________________________________________________
+
+Estrcutura de carpetas
+
+controllers -> funcionalidades
+libs -> librerias
+middlewares -> los middlewares de express, comprueban antes de hacer una solicitud
+models -> modelos de base de datos
+routes -> las rutas de la API
+
+ Adicional se crea otros archivo
+app.js -> Para la aplicacion
+config.js -> Configuraciones de la app : base de datos, usuario, puerto
+database.js -> crear la conexion a la base de datos
+----------------------------------------------------------
+
+busboy, multer -> investigar para subir imagenes
+
+express validator
+joi npm

@@ -9,11 +9,14 @@ import productsRoutes from './routes/products.routes'
 import authRoutes from './routes/auth.routes'
 import usersRoutes from './routes/user.routes'
 
-import { createRoles } from './libs/initialSetup'
+import { createRoles, createAdmin } from './libs/initialSetup'
 
 
 const app = express();
+// setTimeout(createRoles,150000)
+// setTimeout(createAdmin,150000)
 createRoles();
+createAdmin();
 
 app.set('pkg', pkg); //Guardar en una variable pkg el contenido del package
 app.set('port', process.env.PORT || 4000);
@@ -25,7 +28,7 @@ app.use(express.json()); //Para que entienda los objetos json que llegan al serv
 app.use(express.urlencoded({ extended : false }));
 
 app.get('/', (req, res) => {
-    res.json({
+    res.json({ 
         message: 'Welcome to my Products API',
         name: app.get('pkg').name,
         version: app.get('pkg').version,

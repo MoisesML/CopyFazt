@@ -2,9 +2,21 @@ import Product from '../models/Product'
 
 export const createProducts = async (req, res) => {
     const { name, category, price, imgURL} = req.body; //Destructurando lo que llega manda el Front
-    const newProduct = new Product({name, category, price, imgURL}) //Se crea el nuevo objeto para guardar en la BD
-    const productSaved = await newProduct.save() //Guardar en la BD
-    res.status(201).json(productSaved)
+    try {
+        const newProduct = new Product({
+          name,
+          category,
+          price,
+          imgURL,
+        });
+    
+        const productSaved = await newProduct.save();
+    
+        res.status(201).json(productSaved);
+      } catch (error) {
+        console.log(error);
+        return res.status(500).json(error);
+      }
 };
 
 export const getProduct = async (req, res) => {

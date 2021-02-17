@@ -1,5 +1,7 @@
 "use strict";
 
+var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
@@ -23,11 +25,12 @@ var _user = _interopRequireDefault(require("./routes/user.routes"));
 
 var _initialSetup = require("./libs/initialSetup");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
 // Middleware de express
-var app = (0, _express["default"])();
+var app = (0, _express["default"])(); // setTimeout(createRoles,150000)
+// setTimeout(createAdmin,150000)
+
 (0, _initialSetup.createRoles)();
+(0, _initialSetup.createAdmin)();
 app.set('pkg', _package["default"]); //Guardar en una variable pkg el contenido del package
 
 app.set('port', process.env.PORT || 4000);
